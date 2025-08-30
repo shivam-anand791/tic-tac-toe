@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h2>🎮 Tic-Tac-Toe 🎮</h2>
+        
+        <div class="form-container">
+            <form id="playerForm">
+                <label for="firstPlayer">First Player Name</label>
+                <input type="text" id="firstPlayer" name="username1" placeholder="Enter first player name" required>
+
+                <br><br>
+
+                <label for="secondPlayer">Second Player Name</label>
+                <input type="text" id="secondPlayer" name="username2" placeholder="Enter second player name" required>
+
+                <br><br>
+
+                <button type="submit" class="btn">🚀 Start Game</button>
+            </form>
+        </div>
+
+        <div class="greeting"></div>
+        <div class="playerDeclaration"></div>
+        <div class="current-player"></div>
+        <div class="winnerMsg"></div>
+        <div class="drawMsg"></div>
+
+        <div class="container hide">
+            <div class="game">
+                <button type="button" class="box" data-index="0"></button>
+                <button type="button" class="box" data-index="1"></button>
+                <button type="button" class="box" data-index="2"></button>
+                <button type="button" class="box" data-index="3"></button>
+                <button type="button" class="box" data-index="4"></button>
+                <button type="button" class="box" data-index="5"></button>
+                <button type="button" class="box" data-index="6"></button>
+                <button type="button" class="box" data-index="7"></button>
+                <button type="button" class="box" data-index="8"></button>
+            </div>
+        </div>
+
+        <button type="button" class="btn hide" id="rstBtn">🔄 Reset Game</button>
+    </main>
+    <script src="app.js"></script>
+    
+</body>
+</html>
