@@ -1,54 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+    <div class="particles" id="particles"></div>
+
     <main>
-        <h2>🎮 Tic-Tac-Toe 🎮</h2>
-        
-        <div class="form-container">
+        <h1 class="title">Tic‑Tac‑Toe</h1>
+
+        <!-- Setup Screen -->
+        <div class="setup-card" id="setupCard">
+            <p class="setup-subtitle">Enter player names to begin</p>
             <form id="playerForm">
-                <label for="firstPlayer">First Player Name</label>
-                <input type="text" id="firstPlayer" name="username1" placeholder="Enter first player name" required>
+                <div class="input-group">
+                    <label for="firstPlayer">⚔️ Player 1 (X)</label>
+                    <input type="text" id="firstPlayer" name="username1" placeholder="Enter name…" maxlength="15"
+                        required autocomplete="off">
+                </div>
+                <div class="input-group">
+                    <label for="secondPlayer">🛡️ Player 2 (O)</label>
+                    <input type="text" id="secondPlayer" name="username2" placeholder="Enter name…" maxlength="15"
+                        required autocomplete="off">
+                </div>
 
-                <br><br>
+                <!-- Mode Selector -->
+                <div class="mode-selector">
+                    <button type="button" class="mode-btn selected" id="modeClassic">
+                        <span class="mode-icon">🎯</span>
+                        <span class="mode-name">Classic</span>
+                        <span class="mode-desc">Draws allowed</span>
+                    </button>
+                    <button type="button" class="mode-btn" id="modeEndless">
+                        <span class="mode-icon">♾️</span>
+                        <span class="mode-name">Endless</span>
+                        <span class="mode-desc">No ties, ever</span>
+                    </button>
+                </div>
 
-                <label for="secondPlayer">Second Player Name</label>
-                <input type="text" id="secondPlayer" name="username2" placeholder="Enter second player name" required>
-
-                <br><br>
-
-                <button type="submit" class="btn">🚀 Start Game</button>
+                <button type="submit" class="btn btn-start">🚀 Start Game</button>
             </form>
         </div>
 
-        <div class="greeting"></div>
-        <div class="playerDeclaration"></div>
-        <div class="current-player"></div>
-        <div class="winnerMsg"></div>
-        <div class="drawMsg"></div>
+        <!-- Game Screen -->
+        <div class="game-screen hide" id="gameScreen">
 
-        <div class="container hide">
-            <div class="game">
-                <button type="button" class="box" data-index="0"></button>
-                <button type="button" class="box" data-index="1"></button>
-                <button type="button" class="box" data-index="2"></button>
-                <button type="button" class="box" data-index="3"></button>
-                <button type="button" class="box" data-index="4"></button>
-                <button type="button" class="box" data-index="5"></button>
-                <button type="button" class="box" data-index="6"></button>
-                <button type="button" class="box" data-index="7"></button>
-                <button type="button" class="box" data-index="8"></button>
+            <!-- Score Board -->
+            <div class="scoreboard">
+                <div class="score-card" id="scoreX">
+                    <span class="score-name" id="nameX">Player 1</span>
+                    <span class="score-symbol x-symbol">X</span>
+                    <span class="score-value" id="scoreValueX">0</span>
+                </div>
+                <div class="score-divider">
+                    <span class="draws-label">Draws</span>
+                    <span class="draws-value" id="drawsValue">0</span>
+                </div>
+                <div class="score-card" id="scoreO">
+                    <span class="score-name" id="nameO">Player 2</span>
+                    <span class="score-symbol o-symbol">O</span>
+                    <span class="score-value" id="scoreValueO">0</span>
+                </div>
             </div>
-        </div>
 
-        <button type="button" class="btn hide" id="rstBtn">🔄 Reset Game</button>
+            <!-- Status Messages -->
+            <div class="status-bar">
+                <div class="greeting" id="greeting"></div>
+                <div class="playerDeclaration" id="playerDeclaration"></div>
+                <div class="current-player" id="currentPlayer"></div>
+                <div class="winnerMsg" id="winnerMsg"></div>
+                <div class="drawMsg" id="drawMsg"></div>
+            </div>
+
+            <!-- Board -->
+            <div class="board-wrapper">
+                <div class="game" id="gameBoard">
+                    <div id="winLine"></div>
+                    <button type="button" class="box" data-index="0"></button>
+                    <button type="button" class="box" data-index="1"></button>
+                    <button type="button" class="box" data-index="2"></button>
+                    <button type="button" class="box" data-index="3"></button>
+                    <button type="button" class="box" data-index="4"></button>
+                    <button type="button" class="box" data-index="5"></button>
+                    <button type="button" class="box" data-index="6"></button>
+                    <button type="button" class="box" data-index="7"></button>
+                    <button type="button" class="box" data-index="8"></button>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button type="button" class="btn btn-reset" id="rstBtn">🔄 Next Round</button>
+                <button type="button" class="btn btn-newgame" id="newGameBtn">🏠 New Game</button>
+            </div>
+
+        </div>
     </main>
+
     <script src="app.js"></script>
-    
 </body>
+
 </html>
